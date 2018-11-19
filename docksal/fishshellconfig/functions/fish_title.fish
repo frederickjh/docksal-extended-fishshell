@@ -1,0 +1,1 @@
+/home/docker/.config/fisherman/freddyfishy/fish_title.fish

@@ -1,0 +1,1 @@
+/home/docker/.config/fisherman/freddyfishy/fish_right_prompt.fish

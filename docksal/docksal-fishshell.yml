@@ -1,0 +1,23 @@
+version: "2.1"
+
+services:
+  cli:
+    image: ${COMPOSE_PROJECT_NAME_SAFE}_cli
+    build:
+      context: ${PROJECT_ROOT}/.docksal/services/cli
+      args:
+        cli_image: ${CLI_IMAGE}
+    volumes:
+      - ~/.docksal/fishshellconfiglink:/home/docker/.config/fishconfiglink   # Uncomment this line to mount a folder on the Docker host to transfer files into the container.
+      - ~/.docksal/fishshellconfig:/home/docker/.config/fish                # Uncomment this line to store fish shell configuration a folder on the Docker host.
+      - ~/.docksal/fishermanconfig:/home/docker/.config/fisherman
+#      - fishshellconfig:/home/docker/.config/fish                            # Uncomment this line and the three volume lines below to store fish shell configuration in a Docker container volume. You must  first create the volume with: docker run -ti --rm --name=fishshellconfig -v ~/.docksal/fishshellconfig:/fishshellconfig ubuntu
+    environment:
+      - VIRTUAL_HOST  # For use in custom prompt to replace the hash hostname created by Docksal
+      # Next set the default size that we want for the terminal when it opens, otherwise we need to change the size of the terminal program for the docker terminal to get the correct settings. Defaults to 80 columns and 24 rows. Use `tput lines` and `tput cols` to see what your normal terminal dimensions are.
+      #https://github.com/moby/moby/issues/25450#issuecomment-354284254
+      - COLUMNS=159
+      - LINES=42
+#volumes:                                                                    # Fish shell configuration volume
+#  fishshellconfig:                                                          # Fish shell configuration volume
+#    external: true                                                          # Fish shell configuration volume

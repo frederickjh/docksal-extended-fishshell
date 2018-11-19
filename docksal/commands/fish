@@ -1,0 +1,15 @@
+#!/usr/bin/env fish
+
+## Starts the Fish shell inside the container.
+## Usage: fin fish
+## Parameters:
+## There are no extra parameters for this command
+
+# Environment variables passed from fin:
+#
+#   $PROJECT_ROOT - (string) absolute path to NEAREST .docksal folder
+#   $VIRTUAL_HOST - (string) ex. projectname.docksal
+#   $DOCROOT - name of the docroot folder
+#   $DOCKER_RUNNING - (string) "true" or "false"
+
+fin exec fish

@@ -1,0 +1,19 @@
+[user]
+	name = Frederick Henderson
+	email = frederickjh@henderson-meier.org
+[credential]
+	helper = cache --timeout=3600
+[push]
+	default = matching
+[diff]
+	tool = meld
+[merge "donotmergebetweenbranches"]
+	driver = true
+[merge]
+	tool = meld
+[alias]
+	superlog = log --branches --remotes --tags --graph --pretty=oneline --decorate -n10
+[color]
+	ui = true
+[core]
+	excludesfile = /home/docker/.gitignore_global
